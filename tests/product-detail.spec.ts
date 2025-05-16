@@ -17,13 +17,13 @@ test.describe("Product Detail Page @product", async () => {
     await expect(page.locator('[data-test="title"]')).toHaveText('Products');
 
     item = page.locator('[data-test="inventory-item"]').first();
-    item.locator('[data-test="inventory-item-name"]').click();
+    await item.locator('[data-test="inventory-item-name"]').click();
   });
 
   // Product Detail : title, description, price
   test('Should have the correct format info', async ({ page }) => {
-    expect(page.locator('[data-test="inventory-item-name"]').textContent()).not.toBeNull();
-    expect(page.locator('[data-test="inventory-item-name"]').textContent()).not.toBeNull();
+    expect(await page.locator('[data-test="inventory-item-name"]').textContent()).not.toBeNull();
+    expect(await page.locator('[data-test="inventory-item-name"]').textContent()).not.toBeNull();
     // Price
     // Add to Cart
   });
